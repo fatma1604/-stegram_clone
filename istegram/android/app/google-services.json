@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "584729223143",
+    "project_id": "istegram-8ff6e",
+    "storage_bucket": "istegram-8ff6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584729223143:android:71cde2d6be3f3ef8cfa742",
+        "android_client_info": {
+          "package_name": "com.istegram.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8SWYWazjmeXSDu1K2g_zDM5ARa6JLMlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584729223143:android:1f4efad52e75fe93cfa742",
+        "android_client_info": {
+          "package_name": "com.example.istegram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8SWYWazjmeXSDu1K2g_zDM5ARa6JLMlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
