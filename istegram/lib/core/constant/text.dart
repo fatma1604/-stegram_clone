@@ -23,8 +23,8 @@ class AppText {
   static const String recent = 'Recent';
   static const String newReelsTitle = 'New Reels';
   static const String post = 'Post';
-  static const String email = 'Email';
-  static const String password = 'Password';
+  static const String email = 'Kullanıcı adı,e-posta veya cep numarası';
+  static const String password = 'Şifre';
   static const String regisster = "Sign up ";
   static const String regissteruser = "Don't have account?  ";
   static const String login = "Login  ";
