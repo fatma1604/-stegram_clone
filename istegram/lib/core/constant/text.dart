@@ -43,10 +43,5 @@ class AppText {
   static const String takip = 'Takip Etiklerim ';
 
   static const String fav = 'Write a caption ...';
-  static const String text1 = 'a';
-  static const String text2 = 'b';
-  static const String text3 = 'c';
-  static const String text4 = 'b1';
-    static const String text5 = 'b2';
-      static const String text6 = 'b3';
+
 }

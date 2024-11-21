@@ -5,12 +5,12 @@ import 'package:istegram/core/constant/text.dart';
 import 'package:istegram/core/constant/text_them.dart';
 import 'package:istegram/core/widgets/textfild.dart';
 import 'package:istegram/data/sevice/authenticstion.dart';
-import 'package:istegram/features/auth/auth_scren.dart';
+
 
 class LoginScrenn extends StatefulWidget {
-  final VoidCallback showRegisterPage;
+final void Function()? onTap;
 
-  const LoginScrenn(this.showRegisterPage, {super.key});
+  const LoginScrenn( {super.key, required this.onTap});
 
   @override
   State<LoginScrenn> createState() => _LoginScrennState();
@@ -33,11 +33,8 @@ class _LoginScrennState extends State<LoginScrenn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
+    return Stack(
         children: [
-          const AuthScrens(), // Gradient background
           SafeArea(
             child: Column(
               children: [
@@ -64,12 +61,12 @@ class _LoginScrennState extends State<LoginScrenn> {
                 SizedBox(height: 15.h),
                 _buildLoginButton(),
                 SizedBox(height: 15.h),
-                _buildRegisterPrompt(),
+             
               ],
             ),
           ),
         ],
-      ),
+      
     );
   }
 
@@ -110,25 +107,5 @@ class _LoginScrennState extends State<LoginScrenn> {
     );
   }
 
-  Widget _buildRegisterPrompt() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            AppText.regissteruser,
-            style: AppTextTheme.inactiveTextStyle(context),
-          ),
-          GestureDetector(
-            onTap: widget.showRegisterPage,
-            child: Text(
-              AppText.regisster,
-              style: AppTextTheme.recentLabel(context),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
 }

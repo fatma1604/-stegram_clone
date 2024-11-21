@@ -10,6 +10,7 @@ import 'package:istegram/firebase_options.dart';
 // Navigator.pus ==>clean
 //=<clean
 //icon
+//flutter pub run flutter_native_splash:create => unutma
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -17,12 +18,12 @@ void main() async {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
   } catch (e) {
-    print("Firebase initialization error: $e");
-  }
-
-  runApp(const MyApp());
-}
-
+    print("Firebase initialization error: $e"); 
+  } 
+ 
+  runApp(const MyApp()); 
+} 
+ 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
