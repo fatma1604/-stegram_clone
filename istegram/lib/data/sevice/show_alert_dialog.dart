@@ -14,7 +14,7 @@ showAlertDialog({
         backgroundColor: const Color.fromARGB(255, 247, 100, 113),
         content: Text(
           message,
-          style:AppTextTheme.bodyText1(context)
+          style:AppTextTheme.bodyText(context)
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         actions: [
