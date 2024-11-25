@@ -72,7 +72,6 @@ class _LoginScrennState extends State<LoginScrenn> {
               SizedBox(height: 25.h),
               _buildForgetPassword(),
               SizedBox(height: 25.h),
-              // Wrapping the Row widget in a Container to fix the layout issue
               Container(
                 width: double.infinity,
                 child: CustomButton(
@@ -84,10 +83,9 @@ class _LoginScrennState extends State<LoginScrenn> {
                       ),
                     );
                   },
-                  text: AppText.logingo,
+                  text: AppText.account,
                   color: AppColor.trasparan,
                   borderColor: AppColor.actionColor,
-                 
                 ),
               )
             ],
