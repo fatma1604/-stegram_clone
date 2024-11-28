@@ -7,7 +7,7 @@ class AppText {
   static const String email = 'Kullanıcı adı,e-posta veya cep numarası';
   static const String password = 'Şifre';
   static const String forget = "Şifreni mi unutun? ";
-  static const String loginUsar = " Giriş Yap";
+  static const String loginUsar = " Giriş yap";
   static const String logingo = "Giriş sayfasına git";
   static const String eposta = "E-posta";
   static const String account = "Yeni hesap oluştur ";

@@ -1,11 +1,7 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:istegram/core/constant/text_them.dart';
-import 'package:istegram/core/themes/color.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
   final String hintText;
@@ -16,6 +12,31 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     super.key,
   });
+
+  @override
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool isTyping = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(_onTextChanged);
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_onTextChanged);
+    super.dispose();
+  }
+
+  void _onTextChanged() {
+    setState(() {
+      isTyping = widget.controller.text.isNotEmpty;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,38 +50,43 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.zero,
         ),
         child: TextField(
-          style: AppTextTheme.noMediaFound(context),
-          controller: controller,
-          focusNode: focusNode,
+          style: TextStyle(
+            color: isDarkMode
+                ? Colors.white
+                : Colors.black, // Ensure text color is visible
+            fontSize: 16.sp, // Adjust text size if needed
+          ),
+          controller: widget.controller,
+          focusNode: widget.focusNode,
           decoration: InputDecoration(
-            hintText: hintText,
+            labelText: widget.hintText, // Floating label when typing starts
+            floatingLabelBehavior:
+                FloatingLabelBehavior.auto, // Floats when focused or typing
+            labelStyle: TextStyle(
+              color: const Color.fromARGB(
+                  122, 255, 255, 255), // Kırmızı renk etiket için
+            ),
             filled: true,
-            fillColor: isDarkMode
-                ? const Color.fromARGB(166, 5, 31, 53)
-                : AppColor
-                    .pageColor, // Light gray for dark mode // Slightly transparent black for light mode
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: 30.w, vertical: 30.h), // Adjusted vertical padding
+            fillColor: const Color.fromARGB(
+                38, 255, 255, 255), // Always white, no transparency
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r), // Oval corners
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(
-                width: 2.w,
-                color: isDarkMode
-                    ? Colors.white
-                        .withOpacity(0.5) // Light border for dark mode
-                    : Colors.grey, // Darker border for light mode
-              ),
+                  width: 2.w,
+                  color: isDarkMode
+                      ? const Color.fromARGB(84, 255, 255, 255).withOpacity(0.5)
+                      : Colors.blueGrey),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r), // Oval corners
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(
-                width: 2.w,
-                color: isDarkMode
-                    ? AppColor
-                        .primaryBackground // Dark mode focused border color
-                    : AppColor
-                        .primaryBackground, // Light mode focused border color
-              ),
+                  width: 2.w,
+                  color: isDarkMode
+                      ? const Color.fromARGB(158, 255, 255, 255)
+                          .withOpacity(0.5)
+                      : Colors.deepOrange),
             ),
           ),
         ),

@@ -1,16 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:istegram/core/constant/images.dart';
 import 'package:istegram/core/constant/text.dart';
 import 'package:istegram/core/constant/text_them.dart';
-import 'package:istegram/core/themes/color.dart';
-import 'package:istegram/core/widgets/custom_buttom.dart';
-import 'package:istegram/core/widgets/textfild.dart';
-import 'package:istegram/data/sevice/authenticstion.dart';
-import 'package:istegram/features/auth/auth_screen.dart';
+import 'package:istegram/features/auth/forget_scren.dart';
+import 'package:istegram/features/dd.dart';
 
 class LoginScrenn extends StatefulWidget {
   final void Function()? onTap;
@@ -41,56 +35,23 @@ class _LoginScrennState extends State<LoginScrenn> {
     return Stack(
       children: [
         SafeArea(
-          child: Column(
-            children: [
-              SizedBox(width: 96.w, height: 100.h),
-              Center(child: Image.asset(AppImage.logo)),
-              SizedBox(height: 120.h),
-              CustomTextField(
-                controller: emailController,
-                focusNode: emailFocusNode,
-                hintText: AppText.email,
-              ),
-              SizedBox(height: 15.h),
-              CustomTextField(
-                controller: passwordController,
-                focusNode: passwordFocusNode,
-                hintText: AppText.password,
-              ),
-              SizedBox(height: 25.h),
-              CustomButton(
-                onTap: () async {
-                  await AuthenticationService().signInWithEmailAndPassword(
-                    context: context,
-                    email: emailController.text,
-                    password: passwordController.text,
-                  );
-                },
-                text: AppText.loginUsar,
-                color: AppColor.actionColor,
-              ),
-              SizedBox(height: 25.h),
-              _buildForgetPassword(),
-              SizedBox(height: 25.h),
-              Container(
-                width: double.infinity,
-                child: CustomButton(
-                  onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AuthScreen(isLogin: false),
-                      ),
-                    );
-                  },
-                  text: AppText.account,
-                  color: AppColor.trasparan,
-                  borderColor: AppColor.actionColor,
-                ),
-              )
-            ],
-          ),
-        ),
+            child: AuthScreend(
+          buttonCount: 2,
+          textFieldCount: 2,
+          hintText1: AppText.email,
+          hintText2: AppText.password,
+          buttonText1: AppText.loginUsar,
+          buttonText2: AppText.account,
+          onTap1: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ForgetScren()),
+            );
+          },
+          onTap2: () {},
+          imageUrl: "images/instagram.png",
+          betweenButtonsText: AppText.forget,
+        )),
       ],
     );
   }
