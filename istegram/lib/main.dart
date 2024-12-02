@@ -13,7 +13,8 @@ import 'package:istegram/firebase_options.dart';
 //clor 
 //navigator
 //dosya
-//flutter pub run flutter_native_splash:create => unutma
+//flutter pub run flutter_native_splash:create => unutma bunu giriş sayfasında resim cıkması için kullanıyodum
+//text icon 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

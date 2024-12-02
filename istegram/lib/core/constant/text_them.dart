@@ -22,12 +22,33 @@ class AppTextTheme {
         fontSize: 15.sp, fontWeight: FontWeight.w500, color: Colors.grey);
   }
 
-    static TextStyle textsStyla(BuildContext context) {
+  static TextStyle textsStyla(BuildContext context) {
     return TextStyle(
-         fontSize: 20.sp, 
-                        fontWeight: FontWeight.normal,
-                        color:
-                            AppColor.pageColor, );
+      fontSize: 20.sp,
+      fontWeight: FontWeight.normal,
+      color: AppColor.pageColor,
+    );
   }
 
+  static TextStyle accoount(BuildContext context) {
+    return TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.bold,
+      color: AppColor.primaryBackground,
+    );
+  }
+
+  static TextStyle forget(BuildContext context) {
+    return TextStyle(
+      fontSize: 15.sp,
+      color: AppColor.primaryBackground,
+    );
+  }
+
+  static TextStyle reset(BuildContext context) {
+    return TextStyle(
+      fontSize: 15.sp,
+      color: AppColor.actionColor,
+    );
+  }
 }

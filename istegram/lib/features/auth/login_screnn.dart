@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:istegram/core/constant/images.dart';
 import 'package:istegram/core/constant/text.dart';
-import 'package:istegram/core/constant/text_them.dart';
 import 'package:istegram/features/customAuthScreen.dart';
 
 class LoginScrenn extends StatefulWidget {
@@ -54,17 +53,46 @@ class _LoginScrennState extends State<LoginScrenn> {
     );
   }
 
-  Widget _buildForgetPassword() {
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/forget');
-        },
-        child: Text(
-          AppText.forget,
-          style: AppTextTheme.bodyText(context),
-        ),
-      ),
-    );
-  }
 }
+/*
+customWidgets: [
+              Align(
+                alignment: Alignment.topLeft, // Ekranın sol üstüne hizala
+                child: AppIconTheme.backButton(context),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20.w), // Add padding to the left
+                child: Align(
+                  alignment: Alignment.centerLeft, // Ekranın soluna hizala
+                  child: Text(
+                    AppText.userAccount,
+                    style: AppTextTheme.accoount(context),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.only(left: 20.w), // Add padding to the left
+                child: Align(
+                  alignment: Alignment.topLeft, // Ekranın soluna hizala
+                  child: Text(
+                    AppText.forgetuser,
+                    style: AppTextTheme.forget(context),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20.w), // Add padding to the left
+                child: Align(
+                  alignment: Alignment.topLeft, // Ekranın soluna hizala
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      AppText.reset,
+                      style: AppTextTheme.reset(context),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+ */

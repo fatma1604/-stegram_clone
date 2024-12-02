@@ -20,4 +20,8 @@ class AppText {
   static const String phone = "Cep Tellefonu ile kaydol ";
   static const String chooslang = 'Dilini  Seç';
 
+  static const String userAccount = 'Hesabını bul';
+    static const String forgetuser = 'E-postanı veya kullanıcı adını gir ';
+    static const String reset = 'Şifreyi yenileyemiyor musun ';
+
 }
