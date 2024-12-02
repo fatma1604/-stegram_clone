@@ -16,11 +16,13 @@ class CustomAuthScreen extends StatelessWidget {
   final String hintText2;
 
   final String? imageUrl;
-  final String? optionalText1;
-  final String? optionalText2;
+  final List<String>? optionalTexts; // List of texts
+  final List<TextStyle>? optionalTextStyles; // List of styles
   final String? betweenButtonsText;
+  final String? optionalBetweenText;
 
-  final List<Widget>? customWidgets; // İsteğe bağlı widget listesi
+  final List<IconData>? optionalIcons; // List of icons
+  final List<VoidCallback>? onTapIcons; // List of tap actions for the icons
 
   const CustomAuthScreen({
     super.key,
@@ -33,10 +35,12 @@ class CustomAuthScreen extends StatelessWidget {
     this.onTap2,
     this.hintText1,
     this.imageUrl,
-    this.optionalText1,
-    this.optionalText2,
+    this.optionalTexts,
+    this.optionalBetweenText,
+    this.optionalTextStyles, // Accept a list of TextStyle
     this.betweenButtonsText,
-    this.customWidgets, // Parametre olarak ekliyoruz
+    this.optionalIcons, // Accept a list of icons
+    this.onTapIcons, // Accept a list of tap actions for the icons
   });
 
   @override
@@ -73,52 +77,112 @@ class CustomAuthScreen extends StatelessWidget {
                   ),
                   child: IntrinsicHeight(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Display optional icons (ArrowBack at the top)
+                        if (optionalIcons != null)
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: List.generate(
+                                optionalIcons!.length,
+                                (index) {
+                                  final icon = optionalIcons![index];
+                                  final onTap = onTapIcons != null &&
+                                          onTapIcons!.length > index
+                                      ? onTapIcons![index]
+                                      : () {};
+                                  return IconButton(
+                                    icon: Icon(icon),
+                                    onPressed: onTap,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        // Optional image
                         if (imageUrl != null)
                           Padding(
                             padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
-                            child: Image.asset(
-                              imageUrl!,
-                              height: 100.h,
-                              fit: BoxFit.cover,
+                            child: Center(
+                              child: Image.asset(
+                                imageUrl!,
+                                height: 100.h,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        if (optionalText1 != null)
+                        // Optional texts with custom left padding
+                        if (optionalTexts != null)
+                          ...List.generate(
+                            optionalTexts!.length,
+                            (index) {
+                              final text = optionalTexts![index];
+                              final style = optionalTextStyles != null
+                                  ? optionalTextStyles![index]
+                                  : TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold);
+                              return Padding(
+                                padding: EdgeInsets.only(
+                                    left: 20.h, top: 5.h, bottom: 5.h),
+                                child: Text(
+                                  text,
+                                  style: style,
+                                ),
+                              );
+                            },
+                          ),
+
+                        SizedBox(height: 20.h),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 20.h),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    if (hintText1 != null)
+                                      CustomTextField(
+                                        controller: controller1,
+                                        focusNode: focusNode1,
+                                        hintText: hintText1!,
+                                      ),
+                                    if (textFieldCount > 1) ...[
+                                      SizedBox(height: 20.h),
+                                      CustomTextField(
+                                        controller: controller2,
+                                        focusNode: focusNode2,
+                                        hintText: hintText2,
+                                      ),
+                                    ],
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Optional text between text fields and buttons
+                        if (optionalBetweenText != null)
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.h),
+                            padding: EdgeInsets.symmetric(vertical: 10.h),
                             child: Text(
-                              optionalText1!,
+                              optionalBetweenText!,
+                              textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 16.sp, fontWeight: FontWeight.bold),
+                                fontSize: 14.sp,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
                             ),
                           ),
-                        if (optionalText2 != null)
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.h),
-                            child: Text(
-                              optionalText2!,
-                              style: TextStyle(
-                                  fontSize: 14.sp, fontStyle: FontStyle.italic),
-                            ),
-                          ),
-                        if (hintText1 != null)
-                          CustomTextField(
-                            controller: controller1,
-                            focusNode: focusNode1,
-                            hintText: hintText1!,
-                          ),
-                        if (textFieldCount > 1) ...[
-                          SizedBox(height: 20.h),
-                          CustomTextField(
-                            controller: controller2,
-                            focusNode: focusNode2,
-                            hintText: hintText2,
-                          ),
-                        ],
-                        if (customWidgets != null)
-                          ...customWidgets!, // İsteğe bağlı widget'ları ekliyoruz
                         SizedBox(height: 40.h),
+                        // Display the buttons
                         if (onTap1 != null)
                           CustomButton(
                             onTap: onTap1!,
@@ -132,20 +196,21 @@ class CustomAuthScreen extends StatelessWidget {
                               onPressed: () {
                                 Navigator.pushNamed(context, '/forget');
                               },
-                              child: Text(
-                                betweenButtonsText!,
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  color: Theme.of(context).brightness ==
-                                          Brightness.dark
-                                      ? Colors.white
-                                      : Colors.black,
+                              child: Center(
+                                child: Text(
+                                  betweenButtonsText!,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
-
                         if (buttonCount > 1 && onTap2 != null) ...[
                           SizedBox(height: 20.h),
                           CustomButton(

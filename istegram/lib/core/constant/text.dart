@@ -23,5 +23,9 @@ class AppText {
   static const String userAccount = 'Hesabını bul';
     static const String forgetuser = 'E-postanı veya kullanıcı adını gir ';
     static const String reset = 'Şifreyi yenileyemiyor musun ';
+   static const String security = ' Güvenlik ve giriş macıyla bizeden WhatsApp ve SMS bildirimleri alabilirsiniz.';
+      static const String callMobil = ' Bunun yerine cep numarasıyla ara';
+
+
 
 }
