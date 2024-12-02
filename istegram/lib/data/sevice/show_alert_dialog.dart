@@ -11,18 +11,15 @@ showAlertDialog({
     context: context,
     builder: (context) {
       return AlertDialog(
-        backgroundColor: const Color.fromARGB(255, 247, 100, 113),
-        content: Text(
-          message,
-          style:AppTextTheme.bodyText(context)
-        ),
+        backgroundColor: AppColor.pageColor,
+        content: Text(message, style: AppTextTheme.bodyText(context)),
         contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
               btnText ?? "Tamam",
-              style: const TextStyle(color:AppColor.primaryBackground),
+              style: const TextStyle(color: AppColor.primaryBackground),
             ),
           ),
         ],

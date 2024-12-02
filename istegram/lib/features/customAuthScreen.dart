@@ -4,37 +4,36 @@ import 'package:istegram/core/themes/color.dart';
 import 'package:istegram/core/widgets/custom_buttom.dart';
 import 'package:istegram/core/widgets/textfild.dart';
 
-class AuthScreend extends StatelessWidget {
+class CustomAuthScreen extends StatelessWidget {
   final int textFieldCount;
   final int buttonCount;
   final String buttonText1;
   final String buttonText2;
-  final VoidCallback? onTap1; // Make onTap1 nullable
-  final VoidCallback? onTap2; // Make onTap2 nullable
+  final VoidCallback? onTap1;
+  final VoidCallback? onTap2;
 
-  final String? hintText1; // Make hintText1 nullable
+  final String? hintText1;
   final String hintText2;
 
-  // Optional fields for image and texts
-  final String? imageUrl; // Optional image URL
-  final String? optionalText1; // Optional first text
-  final String? optionalText2; // Optional second text
-  final String? betweenButtonsText; // Text between buttons
+  final String? imageUrl;
+  final String? optionalText1;
+  final String? optionalText2;
+  final String? betweenButtonsText;
 
-  const AuthScreend({
+  const CustomAuthScreen({
     super.key,
     this.textFieldCount = 1,
     this.buttonCount = 1,
     this.buttonText1 = 'Button 1',
     this.buttonText2 = 'Button 2',
     this.hintText2 = "sçsç",
-    this.onTap1, // Make nullable
-    this.onTap2, // Make nullable
-    this.hintText1, // Make nullable
-    this.imageUrl, // Optional image URL
-    this.optionalText1, // Optional first text
-    this.optionalText2, // Optional second text
-    this.betweenButtonsText, // Optional text between buttons
+    this.onTap1,
+    this.onTap2,
+    this.hintText1,
+    this.imageUrl,
+    this.optionalText1,
+    this.optionalText2,
+    this.betweenButtonsText,
   });
 
   @override
@@ -65,8 +64,7 @@ class AuthScreend extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (imageUrl != null) // Show image if URL is provided
-                Spacer(),
+              if (imageUrl != null) const Spacer(),
               Padding(
                 padding: EdgeInsets.only(top: 20.h, bottom: 20.h),
                 child: Image.asset(
@@ -75,8 +73,7 @@ class AuthScreend extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              if (optionalText1 != null) // Show first optional text
-
+              if (optionalText1 != null)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.h),
                   child: Text(
@@ -85,7 +82,7 @@ class AuthScreend extends StatelessWidget {
                         TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                   ),
                 ),
-              if (optionalText2 != null) // Show second optional text
+              if (optionalText2 != null)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.h),
                   child: Text(
@@ -94,7 +91,6 @@ class AuthScreend extends StatelessWidget {
                         TextStyle(fontSize: 14.sp, fontStyle: FontStyle.italic),
                   ),
                 ),
-
               if (hintText1 != null)
                 CustomTextField(
                   controller: controller1,
@@ -109,15 +105,14 @@ class AuthScreend extends StatelessWidget {
                   hintText: hintText2,
                 ),
               ],
-              SizedBox(
-                  height: 40.h), // Add space between text fields and buttons
+              SizedBox(height: 40.h),
               if (onTap1 != null)
                 CustomButton(
                   onTap: onTap1!,
                   text: buttonText1,
                   color: Colors.blue,
                 ),
-              if (betweenButtonsText != null) // Text between buttons
+              if (betweenButtonsText != null)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Text(
@@ -125,8 +120,8 @@ class AuthScreend extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white // Koyu modda beyaz renk
-                          : Colors.black, // Açık modda siyah renk
+                          ? Colors.white
+                          : Colors.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -136,7 +131,8 @@ class AuthScreend extends StatelessWidget {
                 CustomButton(
                   onTap: onTap2!,
                   text: buttonText2,
-                  color: Colors.green,
+                  color: AppColor.trasparan,
+                  borderColor: AppColor.actionColor,
                 )
               ],
               Spacer(),

@@ -18,9 +18,6 @@ class AppText {
   static const String forward = "İleri";
   static const String already = "Zaten bir hesabım var ";
   static const String phone = "Cep Tellefonu ile kaydol ";
+  static const String chooslang = 'Dilini  Seç';
+
 }
-/*
-
-
-
- */

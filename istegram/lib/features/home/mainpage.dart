@@ -1,11 +1,7 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:istegram/features/auth/auth_screen.dart';
 import 'package:istegram/features/home/main_screen.dart';
-
-
-
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -19,7 +15,9 @@ class MainPage extends StatelessWidget {
           if (snapshot.hasData) {
             return MainScreen();
           } else {
-            return  const AuthScreen(isLogin: true,);
+            return const AuthScreen(
+              isLogin: true,
+            );
           }
         },
       ),

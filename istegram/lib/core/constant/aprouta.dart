@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:istegram/features/auth/ceptelefonu.dart';
+import 'package:istegram/features/auth/registerPhon.dart';
 import 'package:istegram/features/auth/forget_scren.dart';
-import 'package:istegram/ileri.dart';
+import 'package:istegram/forward.dart';
 
 final class AppRoute {
   const AppRoute._();
@@ -14,6 +14,6 @@ final class AppRoute {
         forget: (context) => const ForgetScren(),
         ileri: (context) => const Ileri(),
         // ignore: equal_keys_in_map
-        ceps: (context) => const RegisterPhone(),
+        ceps: (context) => const RegisterPhonr(),
       };
 }

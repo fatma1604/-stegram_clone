@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:istegram/core/themes/color.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -51,42 +54,34 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         child: TextField(
           style: TextStyle(
-            color: isDarkMode
-                ? Colors.white
-                : Colors.black, // Ensure text color is visible
-            fontSize: 16.sp, // Adjust text size if needed
+            color: isDarkMode ? AppColor.pageColor : AppColor.primaryBackground,
+            fontSize: 16.sp,
           ),
           controller: widget.controller,
           focusNode: widget.focusNode,
           decoration: InputDecoration(
-            labelText: widget.hintText, // Floating label when typing starts
-            floatingLabelBehavior:
-                FloatingLabelBehavior.auto, // Floats when focused or typing
-            labelStyle: TextStyle(
-              color: const Color.fromARGB(
-                  122, 255, 255, 255), // Kırmızı renk etiket için
+            labelText: widget.hintText,
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            labelStyle: const TextStyle(
+              color: AppColor.semiWhite,
             ),
             filled: true,
-            fillColor: const Color.fromARGB(
-                38, 255, 255, 255), // Always white, no transparency
+            fillColor: AppColor.subtleWhite,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                  width: 2.w,
-                  color: isDarkMode
-                      ? const Color.fromARGB(84, 255, 255, 255).withOpacity(0.5)
-                      : Colors.blueGrey),
-            ),
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide(
+                    width: 2.w,
+                    color: isDarkMode
+                        ? AppColor.frostedWhite.withOpacity(0.5)
+                        : AppColor.mutedWhite.withOpacity(0.5))),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(
                   width: 2.w,
-                  color: isDarkMode
-                      ? const Color.fromARGB(158, 255, 255, 255)
-                          .withOpacity(0.5)
-                      : Colors.deepOrange),
+                  color:
+                      isDarkMode ? AppColor.brightWhite : AppColor.mutedWhite),
             ),
           ),
         ),

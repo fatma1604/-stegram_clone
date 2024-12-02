@@ -1,10 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:istegram/core/constant/images.dart';
 import 'package:istegram/core/constant/text.dart';
 import 'package:istegram/core/constant/text_them.dart';
-import 'package:istegram/features/auth/forget_scren.dart';
-import 'package:istegram/features/dd.dart';
+import 'package:istegram/features/customAuthScreen.dart';
 
 class LoginScrenn extends StatefulWidget {
   final void Function()? onTap;
@@ -35,7 +35,7 @@ class _LoginScrennState extends State<LoginScrenn> {
     return Stack(
       children: [
         SafeArea(
-            child: AuthScreend(
+            child: CustomAuthScreen(
           buttonCount: 2,
           textFieldCount: 2,
           hintText1: AppText.email,
@@ -43,13 +43,11 @@ class _LoginScrennState extends State<LoginScrenn> {
           buttonText1: AppText.loginUsar,
           buttonText2: AppText.account,
           onTap1: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ForgetScren()),
-            );
+         
+           
           },
           onTap2: () {},
-          imageUrl: "images/instagram.png",
+          imageUrl: AppImage.logo,
           betweenButtonsText: AppText.forget,
         )),
       ],
