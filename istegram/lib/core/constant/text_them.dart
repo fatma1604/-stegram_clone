@@ -51,4 +51,21 @@ class AppTextTheme {
       color: AppColor.actionColor,
     );
   }
+    static TextStyle heading(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return TextStyle(
+      fontSize: 18,
+      color: theme.brightness == Brightness.dark
+          ? AppColor.white
+          : AppColor.textLiht,
+      fontWeight: FontWeight.w900,
+      shadows: const [
+        BoxShadow(
+          color: AppColor.shadow,
+          blurRadius: 3,
+          offset: Offset(0, 1),
+        ),
+      ],
+    );
+  }
 }

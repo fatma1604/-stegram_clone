@@ -21,11 +21,13 @@ class AppText {
   static const String chooslang = 'Dilini  Seç';
 
   static const String userAccount = 'Hesabını bul';
-    static const String forgetuser = 'E-postanı veya kullanıcı adını gir ';
-    static const String reset = 'Şifreyi yenileyemiyor musun ';
-   static const String security = ' Güvenlik ve giriş macıyla bizeden WhatsApp ve SMS bildirimleri alabilirsiniz.';
-      static const String callMobil = ' Bunun yerine cep numarasıyla ara';
+  static const String forgetuser = 'E-postanı veya kullanıcı adını gir ';
 
-
-
+  static const String reset = 'Şifreyi yenileyemiyor musun ';
+  static const String security =
+      ' Güvenlik ve giriş macıyla bizeden WhatsApp ve SMS bildirimleri alabilirsiniz.';
+  static const String callMobil = ' Bunun yerine cep numarasıyla ara';
+  static const String continueOn = "Devam Edin";
+  static const String continues = "Devam ";
+  static const String facebook = "Facebook ile giriş yap";
 }

@@ -25,5 +25,8 @@ static const Color brightWhite = Color.fromARGB(158, 255, 255, 255);
   static const Color middleGradientColor = Color.fromARGB(166, 5, 31, 53);
     static const Color pastelLavantar = Color.fromARGB(92, 182, 123, 150);
   static const Color rightGradientColor = Color.fromARGB(169, 179, 241, 181);
+    static const Color shadow = Color.fromARGB(122, 185, 105, 138);
+      static const Color textLiht = Color.fromARGB(244, 148, 80, 108);
+      static const Color white = Colors.white;
 }
 
