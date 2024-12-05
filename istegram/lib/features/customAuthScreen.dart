@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:istegram/core/themes/color.dart';
@@ -16,13 +18,13 @@ class CustomAuthScreen extends StatelessWidget {
   final String hintText2;
 
   final String? imageUrl;
-  final List<String>? optionalTexts; // List of texts
-  final List<TextStyle>? optionalTextStyles; // List of styles
+  final List<String>? optionalTexts; 
+  final List<TextStyle>? optionalTextStyles; 
   final String? betweenButtonsText;
   final String? optionalBetweenText;
 
-  final List<IconData>? optionalIcons; // List of icons
-  final List<VoidCallback>? onTapIcons; // List of tap actions for the icons
+  final List<IconData>? optionalIcons; 
+  final List<VoidCallback>? onTapIcons; 
 
   const CustomAuthScreen({
     super.key,
@@ -220,7 +222,7 @@ class CustomAuthScreen extends StatelessWidget {
                             borderColor: AppColor.actionColor,
                           ),
                         ],
-                        Spacer(),
+                        const Spacer(),
                       ],
                     ),
                   ),

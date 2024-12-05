@@ -1,11 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:istegram/core/constant/text.dart';
 import 'package:istegram/core/constant/text_them.dart';
 import 'package:istegram/features/customAuthScreen.dart';
 
-
-class ForgetScren extends StatelessWidget {
-  const ForgetScren({super.key});
+class EPostaregist extends StatelessWidget {
+  const EPostaregist({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,30 +18,35 @@ class ForgetScren extends StatelessWidget {
               Expanded(
                 child: CustomAuthScreen(
                   optionalIcons: const [
-                    Icons.arrow_back, // This will appear at the top
+                    Icons.arrow_back,
+                  ],
+                  onTapIcons: [
+                    () {
+                      Navigator.pop(context); 
+                    },
                   ],
                   textFieldCount: 1,
                   buttonCount: 2,
-                  hintText1: AppText.forgetuser,
-                  buttonText1: AppText.continues,
-                  buttonText2: AppText.facebook,
+                  hintText1: AppText.eposta,
+                  buttonText1: AppText.forward,
+                  buttonText2: AppText.phone,
                   onTap1: () {},
-                  onTap2: () {},
+                  onTap2: () {
+                    Navigator.pushNamed(context, "/ceps");
+                  },
                   optionalTexts: const [
-                    AppText.forgetuser,
-                    AppText.forgetuser,
-                    AppText.reset,
+                    AppText.why_epost,
+                    AppText.user,
+                    AppText.privacy,
                   ],
                   optionalTextStyles: [
                     AppTextTheme.accoount(context),
                     AppTextTheme.forget(context),
-                    AppTextTheme.reset(context),
+                    AppTextTheme.forget(context),
                   ],
-                  optionalBetweenText: AppText.security,
-                  betweenButtonsText: AppText.callMobil,
                 ),
               ),
-              const SizedBox(height: 20), // Optional spacing
+              const SizedBox(height: 20),
             ],
           ),
         ),
